@@ -100,7 +100,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black">
+    <section id="hero" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-black pb-32">
       <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full opacity-80 pointer-events-none" />
 
       <div className="relative z-10 flex flex-col items-center text-center px-4 max-w-5xl mx-auto">

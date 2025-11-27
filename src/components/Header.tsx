@@ -16,7 +16,6 @@ const Header: React.FC = () => {
   const navLinks = [
     { name: 'Inicio', href: '#hero' },
     { name: 'Servicios', href: '#servicios' },
-    { name: 'Testimonios', href: '#testimonios' },
     { name: 'FAQ', href: '#faq' },
   ];
 
@@ -67,7 +66,7 @@ const Header: React.FC = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="absolute top-[70px] left-0 w-full bg-ether-dark/95 backdrop-blur-xl border-t border-ether-border p-6 flex flex-col gap-6 md:hidden shadow-xl">
+        <div className="absolute top-[70px] left-0 w-full bg-ether-dark/95 backdrop-blur-xl border-t border-ether-border p-6 flex flex-col gap-6 md:hidden shadow-xl animate-slide-down">
           {navLinks.map((link) => (
             <button
               key={link.name}

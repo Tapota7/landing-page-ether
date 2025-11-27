@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Instagram, Mail } from 'lucide-react';
+import LegalModal from './LegalModal';
 
 // Si usas el mismo Formspree para el newsletter, pon el ID aquí o impórtalo.
 // Para simplificar, usamos una constante local, pero idealmente sería la misma o una lista separada.
@@ -8,6 +9,7 @@ const FORMSPREE_ID = "mjkqgyqj";
 const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'success'>('idle');
+  const [legalModalType, setLegalModalType] = useState<'privacy' | 'terms' | null>(null);
 
   const handleSubscribe = async () => {
     if (!email) return;
@@ -47,7 +49,7 @@ const Footer: React.FC = () => {
               <span className="font-orbitron font-bold text-lg text-ether-text tracking-wide">ETHER IA</span>
             </div>
             <ul className="space-y-2">
-              {['Servicios', 'Testimonios', 'FAQ', 'Contacto'].map((item) => (
+              {['Servicios', 'FAQ', 'Contacto'].map((item) => (
                 <li key={item}>
                   <a href={`#${item.toLowerCase()}`} className="font-inter text-sm text-ether-subtext hover:text-ether-secondary transition-colors">
                     {item}
@@ -100,11 +102,27 @@ const Footer: React.FC = () => {
             © 2025 ETHER IA. Todos los derechos reservados.
           </p>
           <div className="flex justify-center gap-4">
-            <span className="font-inter text-xs text-ether-subtext/50 hover:text-ether-secondary cursor-pointer">Política de Privacidad</span>
-            <span className="font-inter text-xs text-ether-subtext/50 hover:text-ether-secondary cursor-pointer">Términos de Servicio</span>
+            <button
+              onClick={() => setLegalModalType('privacy')}
+              className="font-inter text-xs text-ether-subtext/50 hover:text-ether-secondary cursor-pointer transition-colors"
+            >
+              Política de Privacidad
+            </button>
+            <button
+              onClick={() => setLegalModalType('terms')}
+              className="font-inter text-xs text-ether-subtext/50 hover:text-ether-secondary cursor-pointer transition-colors"
+            >
+              Términos de Servicio
+            </button>
           </div>
         </div>
       </div>
+
+      <LegalModal
+        isOpen={!!legalModalType}
+        type={legalModalType}
+        onClose={() => setLegalModalType(null)}
+      />
     </footer>
   );
 };

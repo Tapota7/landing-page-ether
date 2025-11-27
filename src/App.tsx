@@ -5,10 +5,12 @@ import Stats from './components/Stats';
 import WhyEther from './components/WhyEther';
 import Services from './components/Services';
 import Process from './components/Process';
-import Testimonials from './components/Testimonials';
+import TechStack from './components/TechStack';
 import FAQ from './components/FAQ';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
+
+import WhatsAppButton from './components/WhatsAppButton';
 
 const App: React.FC = () => {
   return (
@@ -20,11 +22,12 @@ const App: React.FC = () => {
         <WhyEther />
         <Services />
         <Process />
-        <Testimonials />
+        <TechStack />
         <FAQ />
         <CTA />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
