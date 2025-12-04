@@ -9,13 +9,13 @@ const TechLogo: React.FC<{ name: string; slug: string; color: string }> = ({ nam
         >
             {/* Grayscale version (default) */}
             <img
-                src={`https://cdn.simpleicons.org/${slug}/9ca3af`} // ether-subtext color approx
+                src={`https://cdn.simpleicons.org/${slug}/999999`} // Changed to 999999 as 9ca3af is broken for OpenAI
                 alt={name}
                 className="w-10 h-10 md:w-12 md:h-12 absolute transition-opacity duration-300 opacity-100 group-hover:opacity-0"
             />
             {/* Colored version (hover) */}
             <img
-                src={`https://cdn.simpleicons.org/${slug}/${color.replace('#', '')}`}
+                src={`https://cdn.simpleicons.org/${slug}/${color.replace('#', '').toLowerCase()}`}
                 alt={`${name} color`}
                 className="w-10 h-10 md:w-12 md:h-12 absolute transition-opacity duration-300 opacity-0 group-hover:opacity-100"
             />
